@@ -26,7 +26,7 @@ Returns the summary of the analysis:
 }
 \examples{
 data(lipset)
-results <- qmethod(lipset, nfactors=3, nstat=33, 
+results <- qmethod(lipset[[1]], nfactors=3, nstat=33, 
            nqsorts=9, rotation="varimax")
 summary(results)
 }

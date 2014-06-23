@@ -15,12 +15,12 @@
 
 Differences that are significant at a p-value < .05 are indicated by \code{'*'}, and differences significant at a p-value < .01 are indicated by \code{'**'}.
 
-Returns a single data frame with the differences in z-scores between each pair of factors and the variable \code{dist.and.cons}, indicating whether each statement is distinguishing or consensus and for which factor(s) it is distinguishing. These are the possible categories in \code{dist.and.cons}:
+Returns a single data frame with the differences in z-scores between each pair of factors and the variable \code{dist.and.cons}, indicating whether each statement is distinguishing or consensus and for which factor(s) it is distinguishing. These are the possible categories in the \code{dist.and.cons} variable:
 \itemize{
-\item Where all the comparisons between each pair of factors are significantly different at p-value < .05 the statement is labelled as \code{'Distinguishes all'}.
-\item Where the comparisons of a given factor with all other factors are significant at p-value < .05, and comparisons between all other factors are not significant, the statement is labeled as \code{'Distinguishes f*'}.
-\item Where none of the comparisons are significantly different, the statement is labeled as \code{'Consensus'}.
-\item Statements that have category \code{''} are not distinguishing for any of the factors in particularly. They distinguish one or more pairs of factors and the star indications may be inspected to understand their role.
+\item Where all the comparisons between each pair of factors are significantly different at p-value < .05 the statement is labelled as \code{"Distinguishes all"}.
+\item Where the comparisons of a given factor with all other factors are significant at p-value < .05, and comparisons between all other factors are not significant, the statement is labeled as \code{"Distinguishes f*"}.
+\item Where none of the comparisons are significantly different, the statement is labeled as \code{"Consensus"}.
+\item Statements that have category \code{""} (empty) are not distinguishing for any of the factors in particularly. They distinguish one or more pairs of factors and the star indications may be inspected to understand their role.
 }
 }
 
@@ -34,9 +34,9 @@ See further references on the methodology in \code{\link{qmethod-package}}.}
 
 \examples{
 data(lipset)
-results <- qmethod(lipset, nfactors=3, nstat=33, 
+results <- qmethod(lipset[[1]], nfactors=3, nstat=33, 
            nqsorts=9, rotation="varimax")
 sed <- as.data.frame(results[[7]][[3]])
 zsc <- results[[5]]
-qdc(lipset, nfactors=3, zsc=zsc, sed=sed)
+qdc(lipset[[1]], nfactors=3, zsc=zsc, sed=sed)
 }

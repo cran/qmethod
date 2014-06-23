@@ -2,15 +2,14 @@
 \alias{qzscores}
 \title{Q methodology: z-scores from loadings}
 \description{Calculates factor characteristics, z-scores, and rounded scores, provided a matrix of loadings and a matrix of flagged Q-sorts.}
-\usage{qzscores(dataset, nfactors, nstat, nqsorts, rotation="unknown",
-        loa=loa, flagged=flagged, forced=TRUE, distribution=NA)}
+\usage{qzscores(dataset, nfactors, nstat, nqsorts, loa=loa,
+        flagged=flagged, forced=TRUE, distribution=NA)}
 
 \arguments{
   \item{dataset}{a matrix or a data frame containing raw data, with statements as rows, Q-sorts as columns, and the column scores in the distribution in each cell.}
   \item{nfactors}{number of factors to extract.}
   \item{nstat}{number of statements in the study.}
   \item{nqsorts}{number of Q-sorts in the study.}
-  \item{rotation}{rotation method, defaults to \code{"varimax"}. Other possible rotations allowed in \code{\link[psych]{principal}} function can be used: \code{"none"}, \code{"varimax"}, \code{"quartimax"}, \code{"promax"}, \code{"oblimin"}, \code{"simplimax"}, and \code{"cluster"}. The rotation used to generate \code{loa} should be named here, only for information purposes. The function does not actually perform any rotation.}
   \item{loa}{matrix or data frame of \code{nqsorts} rows and \code{nfactors} columns, with values of factor loadings for Q-sorts, calculated using, e.g., \code{principal(...)$loadings}.}
   \item{flagged}{matrix or data frame of \code{nqsorts} rows and \code{nfactors} columns, with \code{TRUE} values for Q-sorts that are flagged. Automatic flagging can be aplied using \code{\link{qflag}} function. Manual flagging can be done by providing the corresponding matrix to \code{flagged}.}
   \item{forced}{logical; Is the distribution of items forced? Is the distribution of items forced? Set to \code{TRUE} if all respondents ranked the items following strictly the distribution scores, and the values of the distribution are calculated automatically. Set to \code{FALSE} if respondents were able to rank the items without following the distribution, and the values of the distribution have to be provided as an array in the argument \code{distribution}.}
@@ -38,11 +37,10 @@ See further references on the methodology in \code{\link{qmethod-package}}.}
 \examples{
 data(lipset)
 library(psych)
-loa <- as.data.frame(unclass(principal(lipset, 
+loa <- as.data.frame(unclass(principal(lipset[[1]], 
                     nfactors=3, rotate="varimax")$loadings))
 flagged <- qflag(nqsorts=9, nstat=33, loa=loa)
-qmzsc <- qzscores(lipset, nstat=33, nfactors=3, nqsorts=9, 
-                    flagged=flagged, loa=loa, 
-                    rotation="varimax")
+qmzsc <- qzscores(lipset[[1]], nstat=33, nfactors=3, nqsorts=9, 
+                    flagged=flagged, loa=loa)
 qmzsc
 }

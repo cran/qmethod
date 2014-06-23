@@ -33,7 +33,7 @@ qdc <- function(dataset, nfactors, zsc, sed) {
       qdc2[which(abs(qdc1[[n]]) >  sedth.05), n] <- "*"
       qdc2[which(abs(qdc1[[n]]) >  sedth.01), n] <- "**"
     }
-    names(qdc2) <- paste0("sig.dif_",names(qdc2))
+    names(qdc2) <- paste0("sig_",names(qdc2))
     qdc2$dist.and.cons <- as.character(apply(qdc2, 1, function(x) sum(x!="")==0))
     qdc2[which(qdc2$dist.and.cons == T), "dist.and.cons"] <- "Consensus"
     if (nfactors == 2) {

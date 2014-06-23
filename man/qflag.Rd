@@ -7,7 +7,7 @@
 \arguments{
   \item{nqsorts}{number of Q-sorts in the study.}
   \item{nstat}{number of statements in the study.}
-  \item{loa}{a Q-sort factor loading matrix \code{loa}, obtained from \code{principal(...)$loadings}.}
+  \item{loa}{a Q-sort factor loading matrix obtained from \code{unclass(\link[psych]{principal}(...)$loadings)}.}
 }
 \details{
 These are the two standard criteria for automatic flagging used in Q method analysis:
@@ -28,7 +28,7 @@ See further references on the methodology in \code{\link{qmethod-package}}.}
 \examples{
 data(lipset)
 library(psych)
-loa <- as.data.frame(unclass(principal(lipset, nfactors=3, rotate="varimax")$loadings))
+loa <- as.data.frame(unclass(principal(lipset[[1]], nfactors=3, rotate="varimax")$loadings))
 flagged <- qflag(nqsorts=9, nstat=33, loa=loa)
 summary(flagged)
 }

@@ -1,5 +1,5 @@
 #calculates final z-scores and factor scores, and extracts main results for Q method
-qzscores <- function(dataset, nfactors, nstat, nqsorts, rotation="unknown", loa=loa, flagged=flagged, forced=TRUE, distribution=NA) {     
+qzscores <- function(dataset, nfactors, nstat, nqsorts, loa=loa, flagged=flagged, forced=TRUE, distribution=NA) {     
     #A. select FLAGGED Q sorts
     floa <- flagged*loa #as.data.frame(loa); floa[which(!flagged, arr.ind=T)] <- 0 # the latter does not work in old versions of R
     #B. calculate FACTOR WEIGHTS for each Q sort, in a new matrix -needs to be a data.frame to perform variable calculations
@@ -50,21 +50,25 @@ qzscores <- function(dataset, nfactors, nstat, nqsorts, rotation="unknown", loa=
     zsc_n <- as.data.frame(zsc)
     f <- 1
     while (f <= length(floa)) {
-        n <- 1
-        while (n <= length(qscores)) {
-        #find which statement has the current qscore rank
-        statement <- order(zsc[,f])[[n]]
-        zsc_n[statement,f] <- qscores[[n]]
-        ##using these qscores based on the initial rawdata values enables that the factor scores are exactly those allowed in the original Q-board data
-        n <- n+1
+      if (length(unique(zsc[,f])) == length(zsc[,f])) {
+        zsc_n[,f] <- qscores[rank(zsc[,f])]
+      } else {
+        zsc_n[,f] <- qscores[rank(zsc[,f])]
+        # statements with identical z-score
+        izsc <- which(round(rank(zsc[,f])) != rank(zsc[,f]))
+        uizsc <- unique(zsc[izsc,f])
+        for (g in uizsc) {
+          izscn <- which(zsc[,f] == g)
+          zsc_n[izscn,f] <- min(zsc_n[izscn,f])
         }
-        f <- f+1
+      }
+      f <- f+1
     }
     colnames(zsc_n) <- paste("fsc_f",c(1:length(floa)),sep="")
     #E. FACTOR CHARACTERISTICS
     f_char <- qfcharact(loa, flagged, nqsorts, zsc, nfactors, floa)
     #F. FINAL OUTPUTS
-    brief <- paste("Q-method analysis performed on ", date(), ". Original data: ", nstat, " statements, ", nqsorts, " Q-sorts. Number of factors: ",nfactors,". Rotation: ", rotation, ". Automatic flagging.", sep="")
+    brief <- paste0("z-scores calculated on ", date(), ". Original data: ", nstat, " statements, ", nqsorts, " Q-sorts. Number of factors: ",nfactors,".")
     qmethodresults <- list()
     qmethodresults[[1]] <- brief
     qmethodresults[[2]] <- dataset

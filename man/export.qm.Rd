@@ -10,9 +10,9 @@
   \item{style}{the structure and formatting of the results in the exported document. Defaults to \code{"R"} where the \code{qmobject} will be written as is. Option \code{"PQMethod"} provides an output with the same structure and elements as those provided by PQMethod software in the LIS files (see details of LIS files in the References below). Note that the latter creates a much longer document.}
 }
 
-\references{Schmolck. \emph{PQMethod Software (Version 2.35)}, 2014. \url{http://schmolck.userweb.mwn.de/qmethod/}
+\references{Schmolck. \emph{PQMethod Software (Version 2.35)}, 2014. \url{http://schmolck.org/qmethod/}
 
-File descriptions in \emph{PQMethod Manual}: \url{http://schmolck.userweb.mwn.de/qmethod/pqmanual.htm#appdxa}
+File descriptions in \emph{PQMethod Manual}: \url{http://schmolck.org/qmethod/pqmanual.htm#appdxa}
 }
 
 \author{Aiora Zabala}
