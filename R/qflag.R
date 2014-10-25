@@ -1,5 +1,7 @@
 #flags Q sorts automatically according to the given loadings matrix
-qflag <- function(nqsorts, nstat, loa=loa) {
+qflag <- function(loa=loa, nstat) {
+  # calculate number of Q sorts and number of statements
+  nqsorts <- nrow(loa)
   #FLAGGING CRITERIA: 
   # -- 1) qsorts which factor loading is higher than the threshold for pval >0.95, and 
   # -- 2) qsorts which square loading is higher than the sum of square loadings of the same q-sort in all other factors
@@ -8,7 +10,7 @@ qflag <- function(nqsorts, nstat, loa=loa) {
   flagged <- data.frame(cbind(1:nqsorts))
   flagged[,1] <- as.logical(flagged[,1])
   f <- 1
-  while (f <= length(loa)) {
+  while (f <= ncol(loa)) {
     n <- 1
     while (n <= nqsorts) {
       flagged[n,f] <- loa_sq[n,f] > (rowSums(loa_sq)[[n]]-loa_sq[n,f]) & abs(loa[n,f]) > thold.05
@@ -16,7 +18,7 @@ qflag <- function(nqsorts, nstat, loa=loa) {
     }
     f <- f+1
   }
-  names(flagged) <- paste("flag_f",1:length(loa), sep="")
+  names(flagged) <- paste("flag_f",1:ncol(loa), sep="")
   row.names(flagged) <- row.names(loa)
   return(flagged)
 }

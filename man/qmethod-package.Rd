@@ -9,12 +9,12 @@ Overview of the \code{qmethod} package. This package performs the analysis of Q 
 
 The following steps of the analysis correspond to separate functions: factor loadings for Q-sorts, automatic flagging of Q-sorts (manual flagging is optional), z-scores and rounded scores for statements, distinguishing and consensus statements, and general characteristics of the factors. The function \code{\link{qmethod}} wraps them all.
 
-The functions for each step may be used separately for advanced analysis, including manual flagging (see details in \code{\link{qzscores}}).
+The functions for each step may be used separately for advanced analysis, for example, for manual flagging (see details in \code{\link{qzscores}}).
 
-The package includes a function to import data from PQMethod software, to export plain text data for interpretation in two flavours, and to plot Q method results. Use \code{help(package="qmethod")} for a list of all the functions.}
+The package includes a function to import data from PQMethod software, to export plain text data for interpretation in two flavours, and to print and plot Q method results. Use \code{help(package="qmethod")} for a list of all the functions.}
 \author{
   Aiora Zabala\cr
-  \url{http://people.ds.cam.ac.uk/az296/}
+  \url{http://www.landecon.cam.ac.uk/directory/aiora-zabala}
 
 Maintainer: Aiora Zabala \email{aiora.zabala@gmail.com}
 }
@@ -33,8 +33,7 @@ Peter Schmolck's Q Method Page.
 }
 \examples{
 data(lipset)
-results <- qmethod(lipset[[1]], nfactors=3, nstat=33, 
-           nqsorts=9, rotation="varimax")
+results <- qmethod(lipset[[1]], nfactors=3, rotation="varimax")
 summary(results)
 results
 }

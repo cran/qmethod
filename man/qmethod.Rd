@@ -3,14 +3,12 @@
 \title{Q methodology analysis}
 \description{This function performs a full Q method analysis using principal components analysis (see Notes). The main results are factor characteristics, statement z-scores and rounded factor scores, and distinguising and consensus statements.}
 \usage{
-qmethod(dataset, nfactors, nstat, nqsorts, rotation="varimax",
-        forced=T, distribution=NA, cor.method="pearson")}
+qmethod(dataset, nfactors, rotation="varimax", forced=T, 
+        distribution=NA, cor.method="pearson")}
 
 \arguments{
   \item{dataset}{a matrix or a data frame containing original data, with statements as rows, Q-sorts as columns, and the column scores in the distribution in each cell.}
   \item{nfactors}{number of factors to extract.}
-  \item{nstat}{number of statements in the study.}
-  \item{nqsorts}{number of Q-sorts in the study.}
   \item{rotation}{rotation method, defaults to \code{"varimax"}. Other possible rotations allowed in \code{\link[psych]{principal}} function can be used: \code{"none"}, \code{"varimax"}, \code{"quartimax"}, \code{"promax"}, \code{"oblimin"}, \code{"simplimax"}, and \code{"cluster"}.}
   \item{forced}{logical; Is the ranking of the items forced to match the distributions? Set to \code{TRUE} if all respondents ranked the items strictly following the distribution scores, and the values of the distribution are calculated automatically. Set to \code{FALSE} if respondents were able to rank the items without following the distribution, and the values of the distribution have to be provided as an array in the argument \code{distribution}.}
 \item{distribution}{logical; when forced = \code{FALSE}, the distribution has to be provided as a vector of numbers, such as \code{c(-2, -1, -1, 0, 1, 1, 2, 2)}.}
@@ -25,22 +23,17 @@ If the input data contains row names and variable names, these will be kept thro
 }
 \value{
 Returns a list with eight objects:
-\item{brief}{summary of the analysis.}
+\item{brief}{a list with the basic values of the analysis: date (\code{"date"}), number of statements (\code{"nstat"}), number of Q-sorts (\code{"nqsort"}), number of factors extracted (\code{"nfactors"}), type or rotation (\code{"rotation"}), and method for correlation in the PCA (\code{"cor.method"}).}
 \item{dataset}{original data.}
 \item{loa}{factor loadings for Q-sorts.}
 \item{flagged}{logical dataframe of flagged Q-sorts.}
 \item{zsc}{statements z-scores.}
 \item{zsc_n}{statements rounded scores, rounded to the values in the first row of the original dataset.}
 \item{f_char}{factor characteristics:
-\enumerate{
-    \item{Average reliability coefficient.}
-    \item{Number of loading Q-sorts.}
-    \item{Eigenvalues.}
-    \item{Percentage of explained variance.}
-    \item{Composite reliability.}
-    \item{Standard error of factor scores.}
-    \item{Correlation coefficients between factors z-scores.}
-    \item{Standard errors of differences.}
+\itemize{
+    \item{\code{"characteristics"}: data frame with the following values for each factor: average reliability coefficient, number of loading Q-sorts, eigenvalues, percentage of explained variance, composite reliability, standard error of factor scores.}
+    \item{\code{"cor_zsc"}: matrix of correlation coefficients between factors z-scores.}
+    \item{\code{"sd_dif"}: matrix of standard errors of differences.}
     }
     }
 \item{qdc}{Distinguishing and consensus statements}
@@ -62,8 +55,7 @@ This package uses PCA because this function is already implemented in R. If you 
 }
 \examples{
 data(lipset)
-results <- qmethod(lipset[[1]], nfactors=3, nstat=33, 
-           nqsorts=9, rotation="varimax")
+results <- qmethod(lipset[[1]], nfactors=3, rotation="varimax")
 summary(results)
 results #shows all results
 }

@@ -9,4 +9,5 @@ export("qmethod",
        "export.qm")
 S3method("plot", "QmethodRes")
 S3method("summary", "QmethodRes")
+S3method("print", "QmethodRes")
 

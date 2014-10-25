@@ -9,7 +9,7 @@ An object with the full results of Q Methodology analysis. This object is automa
 }
 \section{Objects from the Class}{A virtual Class: No objects may be created from it.}
 \section{Methods}{
-\code{\link{plot.QmethodRes}}, \code{\link{summary.QmethodRes}}
+\code{\link{plot.QmethodRes}}, \code{\link{summary.QmethodRes}}, \code{\link{print.QmethodRes}}
 }
 
 \author{

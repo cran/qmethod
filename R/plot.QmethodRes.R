@@ -2,7 +2,7 @@ plot.QmethodRes <- function(x,
                             xlab='z-scores', ylab='statements',
                             pchlist=NULL, colours=NULL,
                             fnames=NULL, legend=T, ...) {
-  dfr <- x$"Statement z-scores"
+  dfr <- x$zsc
   lowlim <- floor(min(dfr[[1]]))
   highlim <- ceiling(max(dfr))
   if (is.null(pchlist)) pchlist <- c(1, 2, 0, 5, 6, 16, 17, 15, 18, 21, 24, 23, 22, 3, 4, 7, 8, 9)

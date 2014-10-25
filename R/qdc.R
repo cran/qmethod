@@ -23,6 +23,7 @@ qdc <- function(dataset, nfactors, zsc, sed) {
     # significant differences
     for (n in 1:length(comp)) {
       # find the threshold for the pair of factors
+      sed <- data.frame(sed)
       first <-  names(sed)[grep(paste0("f", comparisons[[n]][1]), 
                                 names(sed))]
       second <- names(sed)[grep(paste0("f", comparisons[[n]][2]), 

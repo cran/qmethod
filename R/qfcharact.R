@@ -1,4 +1,5 @@
-qfcharact <- function(loa, flagged, nqsorts, zsc, nfactors, floa, av_rel_coef=0.800) {
+qfcharact <- function(loa, flagged, zsc, nfactors, floa, av_rel_coef=0.8) {
+  nqsorts <- nrow(loa)
   loa_sq <- loa^2
   #number of loading q-sorts
   nload <- colSums(flagged)
@@ -28,10 +29,11 @@ qfcharact <- function(loa, flagged, nqsorts, zsc, nfactors, floa, av_rel_coef=0.
   }
   #Bind all together
   f_char <- list()
-  f_char[[1]] <- cbind(av_rel_coef, nload, eigenvals, expl_var, reliability, se_fscores)
+  f_char[[1]] <- data.frame(cbind(av_rel_coef, nload, eigenvals, expl_var, reliability, se_fscores))
   row.names(f_char[[1]]) <- paste("f",1:length(loa), sep="")
   f_char[[2]] <- f_cor
   f_char[[3]] <- sed
-  names(f_char) <- cbind("Average reliability coefficient, Number of loading Q-sorts, Eigenvalues, Percentage of explained variance, Composite reliability, Standard error of factor scores", "Correlation coefficients between factors z-scores", "Standard errors of differences")
+  names(f_char) <- cbind("characteristics", "cor_zsc", "sd_dif")
+  #cbind("Average reliability coefficient, Number of loading Q-sorts, Eigenvalues, Percentage of explained variance, Composite reliability, Standard error of factor scores", "Correlation coefficients between factors z-scores", "Standard errors of differences")
   return(f_char)
 }
