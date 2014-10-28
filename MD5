@@ -1,6 +1,6 @@
-4a4f40124b3b37ae1ea98ea3dbe3836b *DESCRIPTION
+41668f0b33246677b39f5f29de754576 *DESCRIPTION
 dabcc2d15b386b9e31609710dfd51c54 *NAMESPACE
-caff1c029c01b6d2207986a16c75f2c4 *R/export.qm.R
+d1a77942015d42cace1c1fb1a73ff163 *R/export.qm.R
 986c7a4b611da8e2758548a5b4c8fbf1 *R/import.pqmethod.R
 c4370363e6082aff9bbf76396435c1c1 *R/plot.QmethodRes.R
 6e04ca6662257e9523048142bc6317ac *R/print.QmethodRes.R
@@ -14,7 +14,7 @@ b202810381b2e05825632d0bf5cd3e27 *R/qzscores.R
 f2d4911d42ba833fcab26a3c0c8cbe53 *inst/CITATION
 d6872ecab68f782bfc91aab759120beb *man/QmethodRes-class.Rd
 fdde3c66cec73c528a0c9e4c611d1467 *man/export.qm.Rd
-61cf2f2b69a732fc0ddef5cbec23c045 *man/import.pqmethod.Rd
+2e84144c8f688aec9fc82bea9c509436 *man/import.pqmethod.Rd
 2e8c1c9a5b66f280226115cd47b70004 *man/lipset.Rd
 405200e3c4734d777015e3a79eca520f *man/plot.QmethodRes.Rd
 089ce78bf94840c19f1f23f8324d80d2 *man/print.QmethodRes.Rd
