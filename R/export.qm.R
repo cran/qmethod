@@ -1,4 +1,5 @@
-export.qm <- function(qmobject, file, style="R") {
+export.qm <- function(qmobject, file, style = c("R", "PQMethod")) {
+  style <- match.arg(style)
   if (style=="R") capture.output(print(qmobject, length=max(qmobject$brief$nstat, qmobject$brief$nqsorts)), file=file)
   else if (style=="PQMethod") {
     pqmethod.output <- function(qmobject) {

@@ -1,4 +1,4 @@
-qmethod <- function(dataset, nfactors, rotation="varimax", forced=T, distribution=NA, cor.method="pearson") {
+qmethod <- function(dataset, nfactors, rotation="varimax", forced=TRUE, distribution=NA, cor.method="pearson",...) {
   # calculate number of Q sorts and number of statements
   nstat <- nrow(dataset)
   nqsorts <- ncol(dataset)
@@ -9,7 +9,7 @@ qmethod <- function(dataset, nfactors, rotation="varimax", forced=T, distributio
   #if (nqsorts!=ncol(dataset)) stop("Q method input: The number of Q sorts introduced does not match with the number of columns of the data frame or matrix") else if (nstat!=nrow(dataset)) stop("Q method input: The number of statements introduced does not match with the number of rows of the data frame or matrix.") else 
   if (nstat < 2) stop("Q method input: The data frame or matrix entered has less than two statements") else if (nqsorts < 2) stop("Q method input: The data frame or matrix entered has less than two Q-sorts") else if (!is.integer(as.matrix(dataset))) stop("Q method input: The data frame or matrix entered has non numeric values.") else {
     cor.data <- cor(dataset, method=cor.method)
-    loa <- as.data.frame(unclass(principal(cor.data, nfactors=nfactors, rotate=rotation)$loadings)) #PCA from {psych} for factor loadings
+    loa <- as.data.frame(unclass(principal(cor.data, nfactors=nfactors, rotate=rotation, ...)$loadings)) #PCA from {psych} for factor loadings
     names(loa) <- paste0("f", 1:length(loa))
     # The following depends on the qmethod functions: qflag, qzscores, qfcharact, qdc
     flagged <- qflag(loa=loa, nstat=nstat)

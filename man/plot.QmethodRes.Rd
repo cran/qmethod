@@ -4,7 +4,7 @@
 \description{Takes an object \code{QmethodRes} resulting from \code{\link{qmethod}} and makes a dot-chart with the z-scores for statements and all factors.}
 \usage{
 \method{plot}{QmethodRes}(x, xlab='z-scores', ylab='statements', pchlist=NULL,
-            colours=NULL, fnames=NULL, legend=T, ...)
+            colours=NULL, fnames=NULL, legend=TRUE, ...)
                    }
 \arguments{
   \item{x}{number of Q-sorts in the study.}
