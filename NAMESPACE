@@ -4,7 +4,8 @@ import("methods",
        "digest",
        "tools",
        "xtable",
-       "knitr")
+       "knitr",
+       "MCMCpack")
 export("qmethod",
        "qzscores",
        "qflag",
@@ -12,6 +13,7 @@ export("qmethod",
        "q.fnames",
        "qdc",
        "import.pqmethod",
+       "export.pqmethod",
        "import.htmlq",
        "build.q.set",
        "import.q.concourse",
@@ -19,7 +21,20 @@ export("qmethod",
        "import.q.feedback",
        "make.cards",
        "export.qm",
-       "make.cards")
+       "make.cards",
+       "make.distribution",
+       "qmboots",
+       "qmb.summary",
+       "qmb.plot",
+       "qindtest",
+       "qpcrustes",
+       "qfsi",
+       "qbstep",
+       "loa.and.flags")
+importFrom("grDevices", "grey", "rainbow", "gray")
+importFrom("graphics", "abline", "axis", "dotchart", "points", "legend", "mtext", "segments")
+importFrom("stats", "cor", "dnorm", "na.omit", "qnorm", "quantile", "sd", "var", "varimax")
+importFrom("utils", "capture.output", "combn", "read.csv", "read.csv2", "read.delim", "read.fwf")
 S3method("plot",
          "QmethodRes")
 S3method("summary",

@@ -1,4 +1,4 @@
-qmethod <- function(dataset, nfactors, rotation="varimax", forced=TRUE, distribution=NULL, cor.method="pearson",...) {
+qmethod <- function(dataset, nfactors, rotation="varimax", forced=TRUE, distribution=NULL, cor.method="pearson", silent=FALSE, ...) {
   # calculate number of Q sorts and number of statements
   nstat <- nrow(dataset)
   nqsorts <- ncol(dataset)
@@ -52,7 +52,6 @@ qmethod <- function(dataset, nfactors, rotation="varimax", forced=TRUE, distribu
                                         qmethodresults$brief$cor.method))
   qmethodresults[[8]] <- qdc(dataset, nfactors, zsc=qmethodresults[[5]], sed=as.data.frame(qmethodresults[[7]][[3]]))
   names(qmethodresults)[8] <- "qdc"
-  cat(qmethodresults$brief$info, sep="\n")
-  # Will this cat() fill the screen when applying bootstrap?
+  if (silent== FALSE) cat(qmethodresults$brief$info, sep="\n")
   return(qmethodresults)
 }
