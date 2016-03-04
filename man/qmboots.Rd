@@ -30,7 +30,7 @@
 \item{q.array}{array of values in the distribution grid.}
 \item{fsi}{factor stability index (optional; experimental).}
 }
-\references{Zabala, accepted. Bootstrapping Q Methodology to Improve the Understanding of Human Perspectives.}
+\references{Zabala, Pascual (2016) Bootstrapping Q Methodology to Improve the Understanding of Human Perspectives. PLoS ONE 11(2): e0148087.}
 
 \author{Aiora Zabala}
 
@@ -45,6 +45,19 @@ boots <- qmboots(lipset[[1]], nfactors = 3, nsteps = 10, load = "auto",
 boots
 boxplot(t(boots[[2]][[1]][[2]]), horizontal = TRUE, 
 main = "Statement z-score boxplot for the first factor", las = 1)
+
+#See the table summaries:
+qms <- qmb.summary(boots)
+round(qms$statements, digits=2) # statements
+round(qms$qsorts, digits=2)     # Q-sorts
+
+# A more synthetic visualisation:
+# z-scores:
+qmb.plot(qms, nfactors=3, type="zsc", sort=TRUE)
+# factor loadings:
+qmb.plot(qms, nfactors=3, type="loa", sort=TRUE)
+
+
 }
 \keyword{multivariate}
 \keyword{Q methodology}
