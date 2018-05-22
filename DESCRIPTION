@@ -1,8 +1,8 @@
 Package: qmethod
-Version: 1.5.2
-Date: 2017-03-21
+Version: 1.5.4
+Date: 2018-05-21
 Title: Analysis of Subjective Perspectives Using Q Methodology
-Authors@R: c(person(given="Aiora", family="Zabala", comment="Main author", email="aiora.zabala@gmail.com", role=c("aut", "cre")),
+Authors@R: c(person(given="Aiora", family="Zabala", comment=c("Main author", ORCID  = "0000-0001-8534-3325"), email="aiora.zabala@gmail.com", role=c("aut", "cre")),
              person(given="Maximilian", family="Held", comment="Author of additional data management functions", email="maximilian.held83@gmail.com", role=c("aut"))
             )
 Description: Analysis of Q methodology, used to identify distinct perspectives existing within a group.
@@ -20,8 +20,9 @@ URL: https://github.com/aiorazabala/qmethod,
         https://github.com/aiorazabala/qmethod/wiki
 BugReports: https://github.com/aiorazabala/qmethod/issues
 NeedsCompilation: no
-Packaged: 2017-03-21 20:55:53 UTC; aiora
-Author: Aiora Zabala [aut, cre] (Main author),
+Packaged: 2018-05-22 07:48:36 UTC; aiora
+Author: Aiora Zabala [aut, cre] (Main author,
+    <https://orcid.org/0000-0001-8534-3325>>),
   Maximilian Held [aut] (Author of additional data management functions)
 Maintainer: Aiora Zabala <aiora.zabala@gmail.com>
-Date/Publication: 2017-03-21 21:13:01 UTC
+Date/Publication: 2018-05-22 09:57:02 UTC
