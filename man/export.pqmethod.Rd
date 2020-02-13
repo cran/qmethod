@@ -1,7 +1,7 @@
 \name{export.pqmethod}
 \alias{export.pqmethod}
 \title{Q methodology: export to PQMethod *.DAT and *.STA files}
-\description{Exports Q data to *.DAT files readable in PQMethod software.}
+\description{Exports Q data to *.DAT and *.STA files readable in PQMethod software.}
 \usage{export.pqmethod(dataset, study.name, 
      study.description, col.range, 
      filename='Q_data_forPQmethod', 
@@ -16,7 +16,6 @@
   \item{left.zeros}{number of zeros before the distribution, in the second line of *.DAT file.}
   \item{right.zeros}{number of zeros after the distribution, in the second line of *.DAT file).}
   \item{statements}{a matrix with statements, one in each row).}
-  \item{...}{further arguments to be passed to \code{\link[utils]{read.table}} and \code{\link[utils]{read.fwf}}.}
 }
 \details{
 Exports the raw data of a Q methodology study into the native format used in PQMethod. Returns a message with some basic information about the data.
@@ -36,12 +35,12 @@ File descriptions in \emph{PQMethod Manual}: \url{http://schmolck.org/qmethod/pq
 \note{This function is experimental. Use with caution and verify that the output is as desired.}
 
 \examples{
-data(lipset)
-db <- lipset[[1]]
-export.pqmethod(dataset = db, 
-                study.name = 'mystudy', 
-                study.description = 'great study', 
-                col.range = c(-4, 4), 
-                filename = 'mystudy',
-                statements=lipset[[2]])
+# data(lipset)
+# db <- lipset[[1]]
+# export.pqmethod(dataset = db, 
+#                study.name = 'mystudy', 
+#                study.description = 'great study', 
+#                col.range = c(-4, 4), 
+#                filename = 'mystudy',
+#                statements=lipset[[2]])
 }

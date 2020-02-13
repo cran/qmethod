@@ -1,4 +1,4 @@
-af86ab82f50d72c6425d3bfa003d32ef *DESCRIPTION
+6898002f87c2e2584a9708cec0b370a5 *DESCRIPTION
 19b76883e057514edb5ac565fbea0e43 *NAMESPACE
 889b0d5985d2f0bff9cb8053fd60503c *R/build.q.set.R
 49fcb6bb5339a9cf14cdac9e4f23ccd8 *R/export.pqmethod.R
@@ -9,13 +9,13 @@ b045453d6b62d80fa2031240507ed9ae *R/import.htmlq.R
 42c174e9e73f63774ec531433b0f858a *R/import.q.feedback.R
 77fa8e4ba81c3794ac71eaee2a6d5abb *R/import.q.sorts.R
 64e567a65a462348a8212dcfea9576d2 *R/loa.and.flags.R
-4f75185b567d2c4818f3c36da2b9ae18 *R/make.cards.R
+475ef09c14a1174ba6cc534b226a9937 *R/make.cards.R
 788ae0f781962f79f520869ea84e87c1 *R/make.distribution.R
 da9c38e23ffd84c4e22fc92567b13e6e *R/plot.QmethodRes.R
 724e48a853e6a3b15d0a20a76df37dca *R/print.QmethodRes.R
 a6887c98f1af6312aee4e4fb9bd12305 *R/q.fnames.R
 34b8b4c3ba1c68129cf9b0810aed22ca *R/qbstep.R
-8a48f7f9dba5875fd234db43e7edc8c8 *R/qdc.R
+069a202c4e77c8e502d77f40a44a893c *R/qdc.R
 9addeb60901d29613b546adc953c8776 *R/qdc.zsc.R
 eaef4735b6e48a3d47e5ec5af834cacf *R/qfcharact.R
 44ff5a17d717c02412b00c76b0c55bf6 *R/qflag.R
@@ -24,7 +24,7 @@ fadcef1fc5baa10434d25790a18ae321 *R/qfsi.R
 de55f0b0333ffce832210b95d50b8c5a *R/qmb.plot.R
 4338edc4df9b346b7575842c91fe0752 *R/qmb.summary.R
 ff08bf43d10191b2035a87970578236c *R/qmboots.R
-c9da77a18b4f39ec8ba25351d037c6eb *R/qmethod.R
+bb75221443185e2bea661c6e38f21953 *R/qmethod.R
 7e1dc8e17e655db41ffdd8ea451a8124 *R/qpcrustes.R
 81e344a3e2588d1ad2d1c119b659698c *R/qzscores.R
 3d8f051cfc7a828bca2d75931d53793b *R/summary.QmethodRes.R
@@ -50,7 +50,7 @@ c71a7640293b7e7e68f8949febd52d42 *inst/extdata/importexample/sample/concourse/ge
 55cb766e920cde3976bbbac6eccbe65c *inst/extdata/importexample/sample/concourse/ids.csv
 74beb5414391e5cb72166ce313a3409d *inst/extdata/importexample/sample/sampling-structure.csv
 862f1746c6ade326cd7aba924cc57fe9 *man/build.q.set.Rd
-5dfff2cdc8b4374f037d08d6c6a41ad2 *man/export.pqmethod.Rd
+a4e1e45904db4f4dd252a4220907592a *man/export.pqmethod.Rd
 cb119bd1a9c75e55c699f1d9790ad7a1 *man/export.qm.Rd
 3b440af8da4091f7df5a8a597a53bfd8 *man/import.htmlq.Rd
 062c7f442c5f0d2b4f701e504e8fa239 *man/import.pqmethod.Rd
@@ -60,13 +60,13 @@ b6c36a7d90177a9786b9ccfc0f2dc486 *man/import.q.sorts.Rd
 6c58851d7019afb50cf7e614219f40d6 *man/importexample.Rd
 076deca018a368e24daed1642c733421 *man/lipset.Rd
 1c6a255bdd23357f01e504c0e48310d5 *man/loa.and.flags.Rd
-585620e1d1807475b490e7a40b86cc74 *man/make.cards.Rd
+40548436ce0103992d4485bb5ada9fcd *man/make.cards.Rd
 ffd14a2b21089c9485d639c7ed926cc8 *man/make.distribution.Rd
 e43249b64e652d6993fa3b8649e0eef2 *man/plot.QmethodRes.Rd
 b218ce4a030333ffd351bcefce316fd8 *man/print.QmethodRes.Rd
 9cf22dba7933fd4c571413ff6a870f50 *man/q.fnames.Rd
 bb5d26279020c99f7746b371b01ce0de *man/qbstep.Rd
-95ecc9b8a23aced173d1cca068466ae1 *man/qdc.Rd
+fb38f5ed7946ec25ffca0248811596b2 *man/qdc.Rd
 f31a08abd1b24abb3e74669ff0eb4c40 *man/qdc.zsc.Rd
 019a09477ae47e898f57627c25bf2b23 *man/qfcharact.Rd
 2f98df2ca56bb5dd856b78fad812bb63 *man/qflag.Rd
@@ -76,7 +76,7 @@ f31a08abd1b24abb3e74669ff0eb4c40 *man/qdc.zsc.Rd
 2a0b3bf97cd023035a3fa6a54229774e *man/qmb.summary.Rd
 f580abae64efd43885bae8b3c3ff0ec3 *man/qmboots.Rd
 b4b0657dd42e12e70414cf1df15633b4 *man/qmethod-package.Rd
-0a388f77266b0dab1ea0a4d4c017ca06 *man/qmethod.Rd
+0d149f4380a5ce1510c1c665b4229160 *man/qmethod.Rd
 418c50cf1d3d74d5be7a68c5be790d2d *man/qpcrustes.Rd
 23b2ec38d1e1943786222be9e9b197f6 *man/qzscores.Rd
 c7d1b473d4bc82744e273d6c4c964897 *man/summary.QmethodRes.Rd
