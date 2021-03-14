@@ -4,7 +4,9 @@ import("methods",
        "digest",
        "tools",
        "xtable",
-       "knitr")
+       "knitr",
+       "shiny",
+       "rjson")
 export("qmethod",
        "qzscores",
        "qflag",
@@ -15,6 +17,7 @@ export("qmethod",
        "import.pqmethod",
        "export.pqmethod",
        "import.htmlq",
+       "import.easyhtmlq",
        "build.q.set",
        "import.q.concourse",
        "import.q.sorts",
@@ -30,11 +33,13 @@ export("qmethod",
        "qpcrustes",
        "qfsi",
        "qbstep",
-       "loa.and.flags")
+       "loa.and.flags",
+       "centroid",
+       "runInterface")
 importFrom("grDevices", "grey", "rainbow", "gray")
 importFrom("graphics", "abline", "axis", "dotchart", "points", "legend", "mtext", "segments")
 importFrom("stats", "cor", "dnorm", "na.omit", "qnorm", "quantile", "sd", "var", "varimax")
-importFrom("utils", "capture.output", "combn", "read.csv", "read.csv2", "read.delim", "read.fwf")
+importFrom("utils", "capture.output", "combn", "read.csv", "read.csv2", "read.delim", "read.fwf", "packageVersion")
 S3method("plot",
          "QmethodRes")
 S3method("summary",

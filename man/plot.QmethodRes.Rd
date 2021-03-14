@@ -46,3 +46,22 @@ plot(results, main = title, sub = subtitle,
      sort.items = c(rev(1:nrow(results$zsc))))
 }
 \keyword{plot}
+
+\note{
+The names of items to be plotted are taken from the matrix \code{x$zsc}.
+
+To change these names, change the row names in that matrix first, e.g.:
+\code{rownames(x$zsc) <- vector.of.item.names}.
+
+If the margin width is not enough to read the items, specify \code{par(mai=...)} first. See \code{\link[graphics]{par}} for details.
+}
+
+\references{
+This specific dotchart visualisation of Q results implemented in \code{\link{plot.QmethodRes}} was first developed and introduced in this R package, in preparation for the study published in \href{https://www.sciencedirect.com/science/article/abs/pii/S0921800916302683}{Zabala et al. (2017)}.
+
+\itemize{
+  \item Zabala, A., 2014. qmethod: A Package to Explore Human Perspectives Using Q Methodology. \emph{The R Journal}, 6(2):163-173.\cr Available from: \url{https://journal.r-project.org/archive/2014-2/zabala.pdf}.
+  \item Zabala, A., Pascual, U. and Garcia-Barrios, L. 2017. Payments for Pioneers? Revisiting the Role of External Rewards for Sustainable Innovation under Heterogeneous Motivations. \emph{Ecological Economics}, 135:234-245.\cr Available from: \url{https://www.sciencedirect.com/science/article/pii/S0921800916302683/}.
+}
+
+}

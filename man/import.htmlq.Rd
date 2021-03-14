@@ -5,7 +5,7 @@
 \usage{import.htmlq(filename, ...)}
 
 \arguments{
-  \item{filename}{a file with extension *.CSV (see full description of the file below in References).}
+  \item{filename}{a file with extension *.CSV, separated by ";" as done by default in HTMLQ (see full description of the file below in References).}
   \item{...}{further arguments to be passed to \code{\link[utils]{read.csv2}}.}
 }
 \details{
@@ -18,7 +18,7 @@ The second object contains the additional data collected. Columns \code{npos}, \
 
 \author{Aiora Zabala}
 
-\references{Hackert, Christian and Braehler, Gernot, 2007. \emph{FlashQ}, Available at: \url{http://www.hackert.biz/flashq}
+\references{Hackert, Christian and Braehler, Gernot, 2007. \emph{FlashQ}, Used to be available at: http://www.hackert.biz/flashq, but offline as tested on Feb 2021.
 
 Oschlies, Johannes and Killing, Marvin, 2015. \emph{HTMLQ}, Available at: \url{https://github.com/aproxima/htmlq}
 }

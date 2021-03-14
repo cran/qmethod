@@ -1,5 +1,8 @@
 #calculates final z-scores and factor scores, and extracts main results for Q method
 qzscores <- function(dataset, nfactors, loa, flagged, forced = TRUE, distribution = NULL) {    
+  # Validation checks
+  if (0 %in% colSums(flagged)) warning("Q analysis: One or more of the factors extracted have no flagged Q-sorts and no statement calculations can be made on that specific factor. 
+Inspect the 'loa' and 'flagged' tables carefully to see if you missed any flag.")
   # calculate number of Q sorts and number of statements
   nstat <- nrow(dataset)
   nqsorts <- ncol(dataset)
@@ -35,18 +38,19 @@ qzscores <- function(dataset, nfactors, loa, flagged, forced = TRUE, distributio
   colnames(zsc_mea) <- paste("z_mea_",c(1:ncol(floa)),sep="")
   colnames(zsc_std) <- paste("z_std_",c(1:ncol(floa)),sep="")
   #-- z-scores for each statement
-  zsc <- data.frame(cbind(1:nstat))
+  zsc <- matrix(NA, ncol=nfactors, nrow=nstat)
   row.names(zsc) <- row.names(dataset)
   n <- 1
   while (n <= ncol(floa)) {
-    zsc[,n] <- (zsc_sum[,n]-zsc_mea[,n])/zsc_std[,n]
+    if(sum(flagged[,n]) == 0) {} else {zsc[,n] <- (zsc_sum[,n]-zsc_mea[,n])/zsc_std[,n]}
     n <- n+1
   }
   colnames(zsc) <- paste("zsc_f",c(1:ncol(floa)),sep="")
   #D. FACTOR SCORES: rounded z-scores
   if (forced) {
     qscores <- sort(dataset[,1], decreasing=FALSE)
-    if (sum(apply(dataset, 2, function(x) sort(x) != qscores)) > 0) stop("Q method input: The argument 'forced' is set as 'TRUE', but your data contains one or more Q-sorts that do not to follow the same distribution.")
+    if (sum(apply(dataset, 2, function(x) sort(x) != qscores)) > 0) stop("Q method input: The argument 'forced' is set as 'TRUE', but your data contains one or more Q-sorts that do not to follow the same distribution. 
+ For details on how to solve this error, see 'help(qmethod)', including Note.")
   }
   if (!forced) {
     if (is.null(distribution)) stop("Q method input: The argument 'forced' is set as 'FALSE', but no distribution has been provided in the argument 'distribution'.")
@@ -54,7 +58,7 @@ qzscores <- function(dataset, nfactors, loa, flagged, forced = TRUE, distributio
     if (!is.numeric(distribution) & !is.integer(distribution)) stop("Q method input: The distribution provided contains non-numerical values.")
     qscores <- sort(distribution, decreasing=FALSE)
   }
-  zsc_n <- as.data.frame(zsc)
+  zsc_n <- as.matrix(zsc)
   f <- 1
   while (f <= ncol(floa)) {
     if (length(unique(zsc[,f])) == length(zsc[,f])) {
@@ -69,25 +73,30 @@ qzscores <- function(dataset, nfactors, loa, flagged, forced = TRUE, distributio
         zsc_n[izscn,f] <- min(zsc_n[izscn,f])
       }
     }
+    if (sum(!is.na(zsc[,f])) == 0) zsc_n[,f] <- rep(NA, length(zsc_n[,f]))
     f <- f+1
   }
   colnames(zsc_n) <- paste("fsc_f",c(1:ncol(floa)),sep="")
   #E. FACTOR CHARACTERISTICS
-  f_char <- qfcharact(loa, flagged, zsc, nfactors, floa)
+  f_char <- qfcharact(loa, flagged, zsc, nfactors)
   #F. FINAL OUTPUTS
   brief <- list()
-  brief$date <- date()
-  brief$nstat <- nstat
-  brief$nqsorts <- nqsorts
-  brief$distro <- forced
-  brief$nfactors <- nfactors
-  brief$rotation <- "Unknown: loadings were provided separately."
-  brief$cor.method <- "Unknown: loadings were provided separately."
+  brief$date        <- date()
+  brief$pkg.version <- packageVersion('qmethod')
+  brief$nstat       <- nstat
+  brief$nqsorts     <- nqsorts
+  brief$distro      <- forced
+  brief$nfactors    <- nfactors
+  brief$extraction  <- "Unknown: loadings were provided separately."
+  brief$rotation    <- "Unknown: loadings were provided separately."
+  brief$cor.method  <- "Unknown: loadings were provided separately."
   brief$info <- c("Q-method z-scores.",
                   paste0("Finished on:             ", brief$date), 
+                  paste0("'qmethod' package version: ", brief$pkg.version),
                   paste0("Original data:           ", brief$nstat, " statements, ", brief$nqsorts, " Q-sorts"),
                   paste0("Forced distribution:     ", brief$distro),
                   paste0("Number of factors:       ", brief$nfactors),
+                  paste0("Extraction:              ", brief$extraction),
                   paste0("Rotation:                ", brief$rotation),
                   paste0("Flagging:                Unknown: flagged Q-sorts were provided separately."),
                   paste0("Correlation coefficient: ", brief$cor.method))

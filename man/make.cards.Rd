@@ -35,7 +35,7 @@ make.cards(
   \item{output.pdf}{
   	Logical.
   	If \code{TRUE}, function invokes \code{knit2pdf} to create a PDF in the workspace.
-  	If \code{FALSE}, function invokes \code{knit} to return only a *.TEX in the workspace, may be preferable if no \href{http://www.latex-project.org}{LaTeX} installation is available on the used computer.
+  	If \code{FALSE}, function invokes \code{knit} to return only a *.TEX in the workspace, may be preferable if no \href{https://www.latex-project.org/}{LaTeX} installation is available on the used computer.
   	Defaults to \code{TRUE}.
   }
   \item{manual.lookup}{
@@ -45,14 +45,14 @@ make.cards(
   \item{wording.font.size}{
     A character vector of length 1 to set the font size of the full item wording on the cards.
     Defaults to \code{NULL} in which case the default font size 12pt is used.
-    Only \href{http://en.wikibooks.org/wiki/LaTeX/Fonts#Sizing_text}{standard LaTeX font sizes} are allowed, from \code{\\tiny} to \code{\\Huge}.
+    Only \href{https://en.wikibooks.org/wiki/LaTeX/Fonts#Sizing_text}{standard LaTeX font sizes} are allowed, from \code{\\tiny} to \code{\\Huge}.
   }
   \item{file.name}{
     A character vector of length 1 to set the output file path relative to the working directory \emph{without file extension}.
     Defaults to \code{QCards}.
   }
   \item{babel.language}{
-    A character vector of length 1 to set the babel language for appropriate hyphenation, special letters and other international support as provided by the \href{https://www.ctan.org/pkg/babel}{babel LaTeX package}.
+    A character vector of length 1 to set the babel language for appropriate hyphenation, special letters and other international support as provided by the \href{https://www.ctan.org/pkg/babel/}{babel LaTeX package}.
     Only available babel options are permissible.
     Defaults to \code{NULL}, in which case babel is never called.
     Changing \code{babel.language} between function calls can occasionally leave inconsistent LaTeX temp files, which may trip up compilation.
@@ -77,7 +77,7 @@ make.cards(
 
 	The function proceeds internally by preparing a dataframe with full item wordings and identifiers (ID), and then invokes a prepared \code{*.RNW} template included with this package, which in turn includes a \pkg{knitr} chunk, which in turn calls \pkg{xtable} to return a neatly layed-out multi-page table.
   
-  If you are not familiar with the terminology of item \emph{handle}, \emph{ID} and \emph{wording} or the file structure expected for import functions, please read the respective sections in the documentation for \link{qmethod-package} first or consider the package \href{https://github.com/aiorazabala/qmethod/wiki/Data-management}{wiki}
+  If you are not familiar with the terminology of item \emph{handle}, \emph{ID} and \emph{wording} or the file structure expected for import functions, please read the respective sections in the documentation for \link{qmethod-package} first or consider the package \href{https://github.com/aiorazabala/qmethod/wiki/Data-management/}{wiki}
 }
 
 \value{
@@ -91,7 +91,7 @@ make.cards(
 
   When \code{output.pdf = TRUE}, the function will sometimes fail with the error message\cr \code{"Running 'texi2dvi' on ... failed"}.
   This is not a bug with the function, but simply indicates that the path to pdflatex is not available in the current R environment.
-  To fix this issue, compile the resulting *.TEX manually, use RStudio or try \href{http://www.r-bloggers.com/building-r-packages-missing-path-to-pdflatex/}{this fix}.
+  To fix this issue, compile the resulting *.TEX manually, use RStudio or try \href{https://www.r-bloggers.com/2012/12/building-r-packages-missing-path-to-pdflatex/}{this fix}.
   You can also report other suggestions \href{https://github.com/aiorazabala/qmethod/issues/110}{here}.
 
   This function does \emph{not} automatically scale the font size to fit the given card size.
