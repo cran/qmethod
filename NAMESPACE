@@ -1,12 +1,9 @@
 import("methods",
        "psych",
-       "GPArotation",
        "digest",
        "tools",
        "xtable",
-       "knitr",
-       "shiny",
-       "rjson")
+       "knitr")
 export("qmethod",
        "qzscores",
        "qflag",

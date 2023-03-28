@@ -75,7 +75,7 @@ Q-sorts are conveniently entered as *.CSV (comma separated values) files in stan
 		\item Function errors out if there are items in a given Q-sort that cannot be found in the sample \code{q.set}.
 	}
 
-If you are not familiar with the terminology of item \emph{handle}, \emph{ID} and \emph{wording} or the file structure expected for import functions, please read the respective sections in the documentation for \code{\link{qmethod-package}} first or consider the package \href{https://github.com/aiorazabala/qmethod/wiki/Data-management}{wiki}
+If you are not familiar with the terminology of item \emph{handle}, \emph{ID} and \emph{wording} or the file structure expected for import functions, please read the respective sections in the documentation for \code{\link{qmethod-package}} first or consider the package \href{http://aiorazabala.github.io/qmethod/Data-management}{website}.
 
 }
 
@@ -88,7 +88,6 @@ If you are not familiar with the terminology of item \emph{handle}, \emph{ID} an
 
 \note{
 	This function currently works only with forced distributions.
-	If you would like it to work with free distributions, check out and/or chip in at \url{https://github.com/aiorazabala/qmethod/issues/33}.
 
  When argument \code{manual.lookup} is set to \code{NULL}, IDs are computed by "summarising" the complete item wordings (\code{"Q Method is used by a crazy, but charming community of ..."}) into a hexadecimal number (\code{"ae128fs"}), a process known as cryptographic hashing. These hash values change whenever anything in the full item wordings is changed, and allow a precise identification of different versions of an item. This function never exposes users to the hash values; the encrypting and decrypting are done under the hood by the respective functions. Automatic, hashed IDs are generally recommended and easier to use, but some caveats apply.
 

@@ -1,5 +1,6 @@
 qmboots <- function(dataset, nfactors, nsteps, load="auto", rotation="varimax", indet="qindtest", fsi=TRUE, forced=T, distribution=NULL, cor.method="pearson", ...) {
-  warning("Note that bootstrapping is not standard in Q methodology, see the help page and relevant reference.")
+  warning("Note that bootstrapping is an advanced technique in Q methodology, see the help page and relevant reference.")
+  if(forced == F) warning("Because the data are specified as non-forced, it's advisable to focus the interpretation on the z-scores (rather than on the factor scores)")
   startime <- Sys.time()
   nstat <- nrow(dataset)
   nqsorts <- ncol(dataset)
@@ -57,7 +58,7 @@ qmboots <- function(dataset, nfactors, nsteps, load="auto", rotation="varimax", 
     } else stop("Q method input: The factor loading matrix provided in 'load' should have the correct number of Q-sort as rows and the correct number of rotated factors as columns.")
   } else if (is.character(load) & length(load) == 1) {
     if (load == "auto") {
-      qm <- qmethod(dataset, nfactors, rotation=rotation, forced=forced, distribution=distribution, method=cor.method, ...)
+      qm <- qmethod(dataset, nfactors, rotation=rotation, forced=forced, distribution=distribution, cor.method=cor.method, ...)
       flagged <- qm$flagged
       target <- as.matrix(qm$loa)
       colnames(target) <- paste0("target_f", 1:nfactors)
@@ -86,7 +87,7 @@ qmboots <- function(dataset, nfactors, nsteps, load="auto", rotation="varimax", 
                        indet, nfactors, nqsorts, nstat, 
                        qmts=qmts, qmts_log=qmts_log, 
                        flagged=flagged, forced=forced, 
-                       distribution=distribution, method=cor.method, ...)
+                       distribution=distribution, cor.method=cor.method, ...)
     # Export essential results: flagged, zsc and loa
     for (n in 1:nfactors) {
       # z-scores

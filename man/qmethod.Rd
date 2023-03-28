@@ -61,6 +61,9 @@ data(lipset)
 results <- qmethod(lipset[[1]], nfactors = 3, rotation = "varimax")
 summary(results)
 results #shows all results
+
+# Remember to manually inspect the automatic pre-flagging:
+loa.and.flags(results)
 }
 
 
@@ -81,7 +84,8 @@ Second, if you data are indeed non-forced, set the argument \code{"forced = FALS
    4,  4 )}
 
 Or alternatively (a different way of getting the same vector):
-\preformatted{c(rep(-4, 2), rep(-3, 3), rep(-2, 4), rep(-1, 5), rep( 0, 5), rep( 1, 5), rep( 2, 4), rep( 3, 3), rep( 4, 2)) }
+\preformatted{c(rep(-4, 2), rep(-3, 3), rep(-2, 4), rep(-1, 5), rep( 0, 5), 
+  rep( 1, 5), rep( 2, 4), rep( 3, 3), rep( 4, 2)) }
 
 If you don't want to specify a given distribution, you can specify \code{distribution = c(1:nrow(dataset)} and then ignore the factor scores in the output of results.
   

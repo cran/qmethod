@@ -11,7 +11,7 @@
 \arguments{
   \item{subdata}{resampled dataset of Q-sorts.}
   \item{subtarget}{target matrix, adapted to match the rows of the resampled dataset.}
-  \item{indet}{method to solve the double indeterminacy issue when bootstrapping Principal Components Analysis (PCA). \code{"procrustes"} for procrustes rotation from \pkg{GPArotation}, \code{"qindtest"} for simple solution valid for at least up to 3 factors extracted (see references), \code{"both"} for a \emph{\code{"qindtest"}} and a \emph{\code{"procrustes"}} rotation, or \code{"none"} for no solution. The latter is not recommended because it introduces inflated variability. If \code{"none"} is selected, each replication is rotated using the method set in \code{rotation}.}
+  \item{indet}{method to solve the double indeterminacy issue when bootstrapping Principal Components Analysis (PCA). \code{"procrustes"} for procrustes rotation from \pkg{MCMCpack}, \code{"qindtest"} for simple solution valid for at least up to 3 factors extracted (see references), \code{"both"} for a \emph{\code{"qindtest"}} and a \emph{\code{"procrustes"}} rotation, or \code{"none"} for no solution. The latter is not recommended because it introduces inflated variability. If \code{"none"} is selected, each replication is rotated using the method set in \code{rotation}.}
   \item{nfactors}{number of factors in the study.}
   \item{nqsorts}{number of Q-sorts in the study.}
   \item{nstat}{number of statements in the study.}
@@ -33,7 +33,7 @@ This function performs a single step within a bootstrap of Q methodology data. I
 
 \author{Aiora Zabala}
 
-\note{this function is called within the function \code{\link{qmboots}}. Not intended to be used separately.}
+\note{This function is called within the function \code{\link{qmboots}}. Not intended to be used separately.}
 
 \seealso{
 \code{\link{qmethod}} and \code{\link{qmboots}} in this package.

@@ -28,7 +28,7 @@ build.q.set(q.concourse, q.sample, q.distribution)
 
   The function implements a number of tests on the validity and consistency of inputs.
   
-  If you are not familiar with the terminology of item \emph{handle}, \emph{ID} and \emph{wording} or the file structure expected for import functions, please read the respective sections in the documentation for \link{qmethod-package} first or consider the package \href{https://github.com/aiorazabala/qmethod/wiki/Data-management}{wiki}.
+  If you are not familiar with the terminology of item \emph{handle}, \emph{ID} and \emph{wording} or the file structure expected for import functions, please read the respective sections in the documentation for \link{qmethod-package} first or consider the package \href{http://aiorazabala.github.io/qmethod/Data-management}{website}.
 }
 
 \value{
@@ -37,7 +37,6 @@ build.q.set(q.concourse, q.sample, q.distribution)
 
 \note{
   This function currently does \emph{not} actually \emph{draw} a sample, but merely builds the Q set from a \emph{given} sample.
-  Comment and/or chip in if you like want an actual sampling feature: \url{https://github.com/aiorazabala/qmethod/issues/5}.
 
   This function currently requires input in the argument \code{q.distribution}, but it only checks for the sum, so if you are working with a distribution-free study that still has a fixed number of items, you can just enter a vector of length 1 with your total sum of items.
 }

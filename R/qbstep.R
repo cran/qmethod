@@ -26,7 +26,7 @@ qbstep <- function(subdata, subtarget, indet, nfactors, nqsorts, nstat,
     loa <- as.matrix(unclass(varimax(as.matrix(loa))[[1]]))
     qindeterminacy <- qindtest(loa=loa, target=subtarget, 
                                nfactors=nfactors)
-    loa <- qindeterminacy[[1]]
+    loa <- as.data.frame(qindeterminacy[[1]])
     if (indet == "both") {
       loa <- qpcrustes(loa=loa, target=subtarget, nfactors=nfactors)
     }
@@ -35,7 +35,7 @@ qbstep <- function(subdata, subtarget, indet, nfactors, nqsorts, nstat,
   # 3. Calculate z-scores and factor scores with the indeterminacy corrected factor loadings 'loa'
   flagged <- qflag(nstat=nstat, loa=loa)
   qstep <- qzscores(subdata, nfactors=nfactors,  
-                    flagged=flagged, loa=loa)
+                    flagged=flagged, loa=loa, ...)
   #--------------------------------------------------------------------
   # 4. Export necessary results
   step_res <- list()
